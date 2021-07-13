@@ -7,16 +7,17 @@
   <table border=1>
     <!--Generate table header-->
     <tr>
+      <th> # </th>
       <th> Title </th>
       <th> Author </th>
-      <th> Link </th>
     </tr>
     <!--Loop through book records and add a table row for each-->
     {% for book in book_list %}
     <tr>
-      <th> {{ book.title }} </th>
+      <th> {{ book.id }} </th>
+      <!--Build a URL link to the related book data-->
+      <th> <a href="{{ book.get_absolute_url }}"> {{ book.title }} </a></th>
       <th> {{book.author}} </th>
-      <th> <a href="{{ book.get_absolute_url }}">link</a> </th> <!--Build a URL link to the related book data-->
     </tr>
     {% endfor %}
   </table>
