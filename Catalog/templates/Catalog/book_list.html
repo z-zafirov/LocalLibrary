@@ -2,25 +2,25 @@
 
 {% block content %}
   <h1>Book List</h1>
-  
+  <!--Check if there are book records in the DB and generate table if any-->
   {% if book_list %}
   <table border=1>
+    <!--Generate table header-->
     <tr>
       <th> Title </th>
       <th> Author </th>
       <th> Link </th>
     </tr>
-    
+    <!--Loop through book records and add a table row for each-->
     {% for book in book_list %}
     <tr>
       <th> {{ book.title }} </th>
       <th> {{book.author}} </th>
-      <th> <a href="{{ book.get_absolute_url }}">link</a> </th>
-    </tr>  
+      <th> <a href="{{ book.get_absolute_url }}">link</a> </th> <!--Build a URL link to the related book data-->
+    </tr>
     {% endfor %}
-
   </table>
-
+  <!--If there are no book records, display an error message-->
   {% else %}
   <p>There are no books in the library.</p>
   
